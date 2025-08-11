@@ -1,9 +1,9 @@
-
-import { Mastra } from '@mastra/core/mastra';
-import { PinoLogger } from '@mastra/loggers';
-import { LibSQLStore } from '@mastra/libsql';
-import { weatherWorkflow } from './workflows/weather-workflow';
-import { weatherAgent } from './agents/weather-agent';
+import { Mastra } from "@mastra/core/mastra";
+import { PinoLogger } from "@mastra/loggers";
+import { LibSQLStore } from "@mastra/libsql";
+import { weatherWorkflow } from "./workflows/weather-workflow";
+import { weatherAgent } from "./agents/weather-agent";
+import { CloudflareDeployer } from "@mastra/deployer-cloudflare";
 
 export const mastra = new Mastra({
   workflows: { weatherWorkflow },
@@ -13,7 +13,15 @@ export const mastra = new Mastra({
     url: ":memory:",
   }),
   logger: new PinoLogger({
-    name: 'Mastra',
-    level: 'info',
+    name: "Mastra",
+    level: "info",
+  }),
+  deployer: new CloudflareDeployer({
+    projectName: "hello-mastra",
+    env: {
+      CLOUDFLARE_ACCOUNT_ID: "6af174ce99a1e60d7c84c893850d7adb",
+      CLOUDFLARE_API_TOKEN: process.env.CLOUDFLARE_API_TOKEN!,
+      CLOUDFLARE_API_EMAIL: "Jzq1020814597@gmail.com",
+    },
   }),
 });
