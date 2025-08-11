@@ -7,7 +7,7 @@
     "dev": "mastra dev",
     "build": "mastra build",
     "start": "mastra start",
-    "deploy": "npm run build && wrangler deploy --config .mastra/output/wrangler.jsonc"
+    "deploy": "npm run build && wrangler deploy --config .mastra/output/wrangler.json"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +29,7 @@
   "devDependencies": {
     "@types/node": "^24.2.1",
     "mastra": "^0.10.20",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "wrangler": "^4.28.1"
   }
 }
