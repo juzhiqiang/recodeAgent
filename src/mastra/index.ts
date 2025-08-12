@@ -1,13 +1,31 @@
 import { Mastra } from "@mastra/core/mastra";
 import { PinoLogger } from "@mastra/loggers";
 import { LibSQLStore } from "@mastra/libsql";
-import { weatherWorkflow } from "./workflows/weather-workflow";
-import { weatherAgent } from "./agents/weather-agent";
 import { CloudflareDeployer } from "@mastra/deployer-cloudflare";
 
+// 导入工作流
+import { weatherWorkflow } from "./workflows/weather-workflow";
+
+// 导入代理
+import { weatherAgent } from "./agents/weather-agent";
+import { contractAuditAgent } from "./agents/contract-audit-agent";
+
+// 导入工具
+import { weatherTool } from "./tools/weather-tool";
+import { contractAuditTool } from "./tools/contract-audit-tool";
+
 export const mastra = new Mastra({
-  workflows: { weatherWorkflow },
-  agents: { weatherAgent },
+  workflows: { 
+    weatherWorkflow 
+  },
+  agents: {
+    weatherAgent,
+    contractAuditAgent,
+  },
+  tools: {
+    weatherTool,
+    contractAuditTool,
+  },
   // storage: new LibSQLStore({
   //   // stores telemetry, evals, ... into memory storage, if it needs to persist, change to file:../mastra.db
   //   url: ":memory:",
