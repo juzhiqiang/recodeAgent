@@ -5,6 +5,7 @@ import { CloudflareDeployer } from "@mastra/deployer-cloudflare";
 
 // 导入工作流
 import { weatherWorkflow } from "./workflows/weather-workflow";
+import { contractAuditWorkflow } from "./workflows/contract-audit-workflow";
 
 // 导入代理
 import { weatherAgent } from "./agents/weather-agent";
@@ -16,7 +17,8 @@ import { contractAuditTool } from "./tools/contract-audit-tool";
 
 export const mastra = new Mastra({
   workflows: { 
-    weatherWorkflow 
+    weatherWorkflow,
+    contractAuditWorkflow,
   },
   agents: {
     weatherAgent,
