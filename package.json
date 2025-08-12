@@ -1,6 +1,6 @@
 {
   "name": "mastra-agent",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,10 +9,10 @@
     "start": "mastra start",
     "deploy": "npm run build && wrangler deploy --config .mastra/output/wrangler.json"
   },
-  "keywords": [],
+  "keywords": ["contract", "audit", "compliance", "visualization", "dashboard"],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "企业合同审核代理系统 - 专门用于审核可视化大屏企业合同的合规性",
   "type": "module",
   "engines": {
     "node": ">=20.9.0"
@@ -24,10 +24,17 @@
     "@mastra/libsql": "^0.13.1",
     "@mastra/loggers": "^0.10.6",
     "@mastra/memory": "^0.12.1",
-    "zod": "^3.25.76"
+    "zod": "^3.25.76",
+    "mammoth": "^1.8.0",
+    "pdf-parse": "^1.1.1",
+    "multer": "^1.4.5-lts.1",
+    "mime-types": "^2.1.35"
   },
   "devDependencies": {
     "@types/node": "^24.2.1",
+    "@types/multer": "^1.4.12",
+    "@types/mime-types": "^2.1.4",
+    "@types/pdf-parse": "^1.1.4",
     "mastra": "^0.10.20",
     "typescript": "^5.9.2",
     "wrangler": "^4.28.1"
