@@ -27,8 +27,8 @@ export const weatherAgent = new Agent({
   model: deepseek("deepseek-chat"),
   tools: { weatherTool },
   memory: new Memory({
-    storage: new LibSQLStore({
-      url: "file:../mastra.db", // path is relative to the .mastra/output directory
-    }),
+    // storage: new LibSQLStore({
+    //   url: "file:../mastra.db", // path is relative to the .mastra/output directory
+    // }),
   }),
 });
