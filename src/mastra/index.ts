@@ -14,6 +14,8 @@ import { contractAuditAgent } from "./agents/contract-audit-agent";
 // 导入工具
 import { weatherTool } from "./tools/weather-tool";
 import { contractAuditTool } from "./tools/contract-audit-tool";
+import { fileParserTool } from "./tools/file-parser-tool";
+import { contractFileAuditTool } from "./tools/contract-file-audit-tool";
 
 export const mastra = new Mastra({
   workflows: { 
@@ -27,6 +29,8 @@ export const mastra = new Mastra({
   tools: {
     weatherTool,
     contractAuditTool,
+    fileParserTool,
+    contractFileAuditTool,
   },
   // storage: new LibSQLStore({
   //   // stores telemetry, evals, ... into memory storage, if it needs to persist, change to file:../mastra.db
